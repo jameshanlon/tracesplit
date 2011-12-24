@@ -16,6 +16,7 @@ syn match sIn      "^.* inct .*$"
 syn match sIn      "^.* chkct .*$"
 syn match sFrame   "^.* entsp .*"
 syn match sFrame   "^.* retsp .*"
+syn match sEvent   "^.* Event .*$"
 syn match sComment  "%.*"
 
 if version >= 508 || !exists("did_x_syntax_inits")
@@ -46,6 +47,7 @@ if version >= 508 || !exists("did_x_syntax_inits")
    HiLink sOut     Structure
    HiLink sIn      Keyword
    HiLink sFrame   Comment
+   HiLink sEvent   String
 
   delcommand HiLink
 endif
