@@ -8,7 +8,7 @@ def write(outfiles, core, thread, time, inst):
     return 'c{}t{}'.format(core, thread)
   k = key(core, thread)  
   if not k in outfiles:
-    outfiles[k] = open(k, 'w')
+    outfiles[k] = open(k+'.trace', 'w')
   outfiles[k].write('{} {}\n'.format(time, inst))
 
 def main(args):
