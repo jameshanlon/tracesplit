@@ -12,14 +12,10 @@ def write(outfiles, core, thread, time, inst):
   outfiles[k].write('{} {}\n'.format(time, inst))
 
 def main(args):
-  if len(args) != 2:
-    print('Usage: {} <filename>'.format(args[0]))
-    sys.exit(1)
-  filename = args[1]
   outfiles = {}
-  pattern = re.compile(r' *([0-9]+) \[c([0-9]+)t([0-9]+)\] (.*)')
+  pattern = re.compile(r' *([0-9]+) <c([0-9]+):t([0-9]+)> (.*)')
   try:
-    f = open(filename, 'r')
+    f = open(args[1], 'r') if len(args)==2 else sys.stdin
     line = f.readline()
     while(line != ''):
       matcher = re.match(pattern, line)
