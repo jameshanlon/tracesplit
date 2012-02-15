@@ -2,6 +2,7 @@
 
 import sys
 import re
+#import resource
 
 def write(outfiles, core, thread, time, inst):
   def key(core, thread):
@@ -18,6 +19,7 @@ def main(args):
   filename = args[1]
   outfiles = {}
   pattern = re.compile(r' *([0-9]+) \[c([0-9]+)t([0-9]+)\] (.*)')
+  #resource.setrlimit(resource.RLIMIT_NOFILE, (500,-1))
   try:
     f = open(filename, 'r')
     line = f.readline()
