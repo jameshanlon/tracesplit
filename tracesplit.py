@@ -14,7 +14,8 @@ def write(outfiles, core, thread, time, inst):
 
 def main(args):
   outfiles = {}
-  pattern = re.compile(r' *([0-9]+) \[c([0-9]+)t([0-9]+)\] (.*)')
+  pattern = re.compile(r' *([0-9]+) <c([0-9]+):t([0-9]+)> (.*)')
+  #pattern = re.compile(r' *([0-9]+) \[c([0-9]+)t([0-9]+)\] (.*)')
   #resource.setrlimit(resource.RLIMIT_NOFILE, (500,-1))
   try:
     f = open(args[1], 'r') if len(args)==2 else sys.stdin
@@ -28,6 +29,9 @@ def main(args):
         inst = matcher.group(4)
         write(outfiles, core, thread, time, inst)
         #print('@{} c{}t{}'.format(time, core, thread))
+        #print('c{}t{}'.format(core, thread))
+      #else:
+      #  print('no match')
       line = f.readline()
     f.close()
     for k in outfiles.keys():
