@@ -1,4 +1,4 @@
 #! /usr/bin/env sh
 
-$TRACESPLIT_INSTALL_PATH/tracesplit.py "$@"
+$TRACESPLIT_HOME/tracesplit.py "$@"
 
